@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="box">
+        <div class="outer">
+          <div class="outer-inner">
+            <ul id="list">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+            <div>
+                <span class="hour"></span>
+                <span class="minute"></span>
+                 <span class="sec"></span>
+                 <div class="origin">
+                     <span class="o_inner1">
+                         <span class="o_inner2"></span>
+                     </span>
+                 </div>
+                 <span class="an"></span>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+<style id="css">
+    *{
+     margin: 0;
+     padding: 0;
+    }
+    .outer {
+      width: 500px;
+      height: 500px;
+      border: 15px solid #ff1515;
+      border-radius: 50%;
+    }
+    .outer-inner {
+      width: 480px;
+      height: 480px;
+      border: 10px solid #b70d0d;
+      border-radius: 50%;
+      position: relative;
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0;
+      height: 200px;
+      position: relative;
+      list-style: none;
+     
+    }
+    ul li {
+      width: 7px;
+      height: 7px;
+      background: #a3a3a3;
+      position: absolute;
+      left: 0;
+      top: 237px;
+      -webkit-transform-origin: 240px;
+      border-radius: 50%;
+    }
+    ul li:nth-of-type(1) {
+      -webkit-transform: rotate(0);
+    }
+    ul li:nth-of-type(2) {
+      -webkit-transform: rotate(6deg);
+    }
+    ul li:nth-of-type(3) {
+      -webkit-transform: rotate(12deg);
+    }
+    ul li:nth-of-type(4) {
+      -webkit-transform: rotate(18deg);
+    }
+    ul li:nth-of-type(5) {
+      -webkit-transform: rotate(24deg);
+    }
+    ul li:nth-of-type(6) {
+      -webkit-transform: rotate(30deg);
+    }
+    ul li:nth-of-type(7) {
+      -webkit-transform: rotate(36deg);
+    }
+    ul li:nth-of-type(8) {
+      -webkit-transform: rotate(42deg);
+    }
+    ul li:nth-of-type(5n + 1) {
+      height: 7px;
+      width: 23px;
+      background: #666665;
+      position: absolute;
+      left: 0;
+      top: 237px;
+      -webkit-transform-origin: 240px;
+      border-radius: 0;
+    }
+
+    .origin{
+    position: absolute;
+    display: inline-block;
+    top: 230px;
+    left: 230px;
+    width: 24px;
+    height: 24px;
+    background: #e98b7e;
+    border-radius: 50%;
+    }
+    .o_inner1{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: #ecb8b0;
+        border-radius: 50%;
+        position: relative;
+    top: 3px;
+    left: 3px;
+    }
+    .o_inner2{
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: #c44a3d;
+        border-radius: 50%;
+        position: relative;
+    top: -3px;
+    left: 4px;
+    }
+    .hour{
+        display: inline-block;
+        height: 10px;
+        width: 90px;
+        background: #9a9a99;
+        position: relative;
+    left: 141px;
+    top: -102px;
+    }
+    .minute{
+        display: inline-block;
+        height: 130px;
+        width: 10px;
+        background: #9a9a99;
+        position: relative;
+    left: 143px;
+    top: -118px;
+    }
+    .sec{
+        display: inline-block;
+        height: 150px;
+        width: 5px;
+        background: #de6857;
+        position: relative;
+        top: 57px;
+        left: 136px;
+        transform-origin: -15px 0px;
+        transform: rotate(-30deg);
+    }
+
+    .an{
+        display: inline-block;
+        border: 10px solid ;
+        border-color:  #de6857 transparent transparent transparent;
+        height: 0;
+        width: 0;
+        position: relative;
+    transform: rotate(-30deg);
+    top: 44px;
+    left: 194px;
+    }
+    </style>
+<script>
+  
+  var oList=document.getElementById("list");//获取到刻度
+        var oCss=document.getElementById("css");
+
+      var sCss = ""
+      var oLi = ''
+      for (var i = 0; i < 60; i++) { //一个表盘总共是60个刻度
+        sCss += " ul li:nth-of-type(" + (i + 1) + "){ -webkit-transform:  rotate(" + i * 6 + "deg);}";
+        oLi += "<li></li>";
+      };
+      console.log(sCss)
+      oList.innerHTML = oLi;
+      oCss.innerHTML += sCss;//表盘刻度渲染完成
+    
+    
+</script>
+
